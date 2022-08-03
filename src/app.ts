@@ -1,18 +1,13 @@
 import express from 'express';
-
-const rescue = require('express-rescue');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const {
-  productsRouter,
-} = require('./routers');
+import rescue from 'express-rescue';
+import helmet from 'helmet';
+import routers from './routers';
 
 const app = express();
 
 app.use(helmet());
-app.use(morgan('common'));
 app.use(express.json());
 
-app.use('/products', rescue(productsRouter));
+app.use('/products', rescue(routers.productsRouter));
 
 export default app;
