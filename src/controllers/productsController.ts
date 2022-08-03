@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import productsService from '../services/productsService';
+import * as productsService from '../services/productsService';
 import httpStatusCodes from '../helpers/httpStatusCodes';
 
-const create = async (req: Request, res: Response, next: NextFunction) => {
+export const create = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const createdProduct = await productsService.create(req.body);
     return res.status(httpStatusCodes.CREATED).json(createdProduct);
@@ -10,5 +10,3 @@ const create = async (req: Request, res: Response, next: NextFunction) => {
     next(err);
   }
 };
-
-export default { create };
