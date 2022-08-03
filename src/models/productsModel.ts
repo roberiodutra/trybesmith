@@ -10,3 +10,9 @@ export const create = async (product: IProducts): Promise<IProducts> => {
 
   return { id: insertId, ...product };
 };
+
+export const getAll = async (): Promise<IProducts[]> => {
+  const query = `SELECT * FROM Trybesmith.Products ORDER BY id ASC`;
+  const [data] = await connection.execute(query);
+  return data as IProducts[];
+};
