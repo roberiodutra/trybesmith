@@ -4,8 +4,8 @@ import httpStatus from '../helpers/httpStatusCodes';
 
 export const getAll = async (_req: Request, res: Response, next: NextFunction) => {
   try {
-    const ordersIds = await ordersService.getAll();
-    return res.status(httpStatus.OK).json(ordersIds);
+    const orders = await ordersService.getAll();
+    return res.status(httpStatus.OK).json(orders);
   } catch (err) {
     next(err);
   }
