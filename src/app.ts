@@ -9,5 +9,6 @@ app.use(helmet());
 app.use(express.json());
 
 app.use('/products', rescue(routers.productsRouter));
+app.use('/users', rescue(routers.usersRouter));
 
 export default app;
