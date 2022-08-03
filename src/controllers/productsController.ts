@@ -10,3 +10,12 @@ export const create = async (req: Request, res: Response, next: NextFunction) =>
     next(err);
   }
 };
+
+export const getAll = async (_req: Request, res: Response, next: NextFunction) => {
+  try {
+    const products = await productsService.getAll();
+    return res.status(httpStatusCodes.OK).json(products);
+  } catch (err) {
+    next(err);
+  }
+};
