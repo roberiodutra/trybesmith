@@ -26,4 +26,4 @@ const errorMessages = {
   PRODUCTS_IDS_ONLY_NUMBERS: '"productsIds" must include only numbers',
 };
 
-module.exports = errorMessages;
+export default errorMessages;
