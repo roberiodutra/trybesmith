@@ -1,9 +1,10 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
+import jwt, { SignOptions, Secret } from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const SECRET = process.env.JWT_SECRET;
+const SECRET: Secret = process.env.JWT_SECRET || 'vnetod';
 
-const jwtConfig = {
+const jwtConfig: SignOptions = {
   expiresIn: '15m',
   algorithm: 'HS256',
 };
