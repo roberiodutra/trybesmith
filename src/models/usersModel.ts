@@ -10,9 +10,9 @@ export const create = async (u: IUsers): Promise<void> => {
   await connection.execute<ResultSetHeader>(query, values);
 };
 
-export const getUser = async (body: IUsers): Promise<IUsers> => {
+export const getUser = async (body: any): Promise<any> => {
   const query = `SELECT * FROM Trybesmith.Users WHERE username=? AND password=?`;
   const values = [body.username, body.password];
   const [userData] = await connection.execute(query, values);
-  return userData as IUsers[];
+  return userData;
 }
