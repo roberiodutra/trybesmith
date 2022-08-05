@@ -1,11 +1,10 @@
 import { ErrorRequestHandler } from 'express';
-import IStatusCodes from '../interfaces/IStatusCodes';
 
-const statusCodes: IStatusCodes = {
-  'any.required': 400,
-  'any.invalid': 401,
-  'string.base': 422,
-  'string.min': 422,
+enum statusCodes {
+  'any.required' = 400,
+  'any.invalid' = 401,
+  'string.base' = 422,
+  'string.min' = 422,
 };
 
 const errorHandler: ErrorRequestHandler = async (err, _req, res, _next) => {
