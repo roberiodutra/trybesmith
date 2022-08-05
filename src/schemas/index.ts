@@ -1,5 +1,4 @@
 import Joi from "joi"
-import httpStatus from '../helpers/httpStatusCodes';
 import errorMessages from "../helpers/errorMessages";
 
 export default {
@@ -7,11 +6,19 @@ export default {
     username: Joi.string()
       .required(),
     password: Joi.string()
-      .required()
+      .required(),
   }),
   checkBool: Joi.boolean()
-  .invalid(true)
-  .messages({
-    'any.invalid': errorMessages.INVALID_LOGIN,
-  })
+    .invalid(true)
+    .messages({
+      'any.invalid': errorMessages.INVALID_LOGIN,
+  }),
+  product: Joi.object({
+    name: Joi.string()
+      .required()
+      .min(3),
+    amount: Joi.string()
+      .required()
+      .min(3),
+  }),
 };
