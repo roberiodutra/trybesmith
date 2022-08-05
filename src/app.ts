@@ -11,5 +11,6 @@ app.use(express.json());
 app.use('/products', rescue(routers.productsRouter));
 app.use('/users', rescue(routers.usersRouter));
 app.use('/orders', rescue(routers.ordersRouter));
+app.use('/login', rescue(routers.loginRouter));
 
 export default app;
