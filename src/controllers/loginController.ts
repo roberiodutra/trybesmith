@@ -10,7 +10,6 @@ const loginController = async (
     const token = await loginService.login(req.body);
     return res.status(httpStatus.OK).json(token);
   } catch (err) {
-    console.log("🚀 ~ file: loginController.ts ~ line 13 ~ err", err)
     next(err);
   }
 };

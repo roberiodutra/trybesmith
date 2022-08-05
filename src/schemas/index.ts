@@ -3,10 +3,15 @@ import httpStatus from '../helpers/httpStatusCodes';
 import errorMessages from "../helpers/errorMessages";
 
 export default {
-  bodyVal: Joi.object({
+  body: Joi.object({
     username: Joi.string()
       .required(),
     password: Joi.string()
       .required()
   }),
+  checkBool: Joi.boolean()
+  .invalid(true)
+  .messages({
+    'any.invalid': errorMessages.INVALID_LOGIN,
+  })
 };
