@@ -12,7 +12,7 @@ const errorHandler: ErrorRequestHandler = async (err, _req, res, _next) => {
 
   const code = statusCodes[err.details[0].type as keyof typeof statusCodes];
 
-  res.status(code)
+  res.status(code || 500)
     .json({
       message: err.message,
     });
