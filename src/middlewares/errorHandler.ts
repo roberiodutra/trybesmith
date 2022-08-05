@@ -1,23 +1,21 @@
-import httpStatus from '../helpers/httpStatusCodes';
 import { ErrorRequestHandler } from 'express';
+import IStatusCodes from '../interfaces/IStatusCodes';
+
+const statusCodes: IStatusCodes = {
+  'any.required': 400,
+  'any.invalid': 401,
+};
 
 const errorHandler: ErrorRequestHandler = async (err, _req, res, _next) => {
   
   console.log("🚀 ~ file: errorHandler.ts ~ line 14 ~ consterrorHandler:ErrorRequestHandler= ~ err", err)
 
-  if (err.details[0].type === 'any.required') {
-    res.status(httpStatus.BAD_REQUEST)
-      .json({
-        message: err.message,
-      });
-  }
+  const code = statusCodes[err.details[0].type as keyof typeof statusCodes];
 
-  if (err.details[0].type === 'any.invalid') {
-    res.status(httpStatus.UNAUTHORIZED)
-      .json({
-        message: err.message,
-      });
-  }
+  res.status(code)
+    .json({
+      message: err.message,
+    });
 };
 
 export default errorHandler;
