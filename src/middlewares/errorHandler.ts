@@ -5,6 +5,8 @@ enum statusCodes {
   'any.invalid' = 401,
   'string.base' = 422,
   'string.min' = 422,
+  'number.base' = 422,
+  'number.min' = 422,
 };
 
 const errorHandler: ErrorRequestHandler = async (err, _req, res, _next) => {
