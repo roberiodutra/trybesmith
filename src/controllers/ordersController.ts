@@ -2,10 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import * as ordersService from '../services/ordersService';
 import httpStatus from '../helpers/httpStatusCodes';
 import validateTokenService from '../services/validateTokenService';
-
-export interface IReqUser extends Request {
-  user?: any,
-};
+import IReqUser from '../interfaces/IReqUser';
 
 export const getAll = async (_req: Request, res: Response, next: NextFunction) => {
   try {
