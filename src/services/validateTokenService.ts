@@ -17,7 +17,7 @@ const validate = async (req: IReqUser): Promise<void> => {
 
   await schemas.token.validateAsync({ token });
 
-  jwt.verify(token, SECRET, (error: unknown, user: unknown) => {
+  jwt.verify(token, SECRET, (error: any, user: any) => {
     if (error) {
       const newError = new StatusError(errorMessages.InvalidToken);
       newError.details = [{ type: 'any.invalid' }];

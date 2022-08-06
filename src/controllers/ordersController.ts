@@ -18,9 +18,10 @@ export const create = async (
   res: Response,
   next: NextFunction,
 ): Promise<Response | void> => {
+  const { body: { productsIds } } = req;
   try {
     await validateTokenService.validate(req);
-    const created = await ordersService.create(req.user.id, req.body.productsIds);
+    const created = await ordersService.create(req.user.id, productsIds);
     return res.status(httpStatus.Created).json(created);
   } catch (err) {
     next(err);
