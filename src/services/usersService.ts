@@ -10,4 +10,4 @@ const create = async (user: IUsers): Promise<{ token: string }> => {
   return { token };
 };
 
-export default create;
+export default { create };

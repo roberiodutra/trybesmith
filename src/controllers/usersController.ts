@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import * as usersService from '../services/usersService';
+import usersService from '../services/usersService';
 import httpStatus from '../helpers/httpStatusCodes';
 
 const create = async (req: Request, res: Response, next: NextFunction) => {
@@ -11,4 +11,4 @@ const create = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default create;
+export default { create };
