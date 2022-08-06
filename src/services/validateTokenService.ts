@@ -2,7 +2,7 @@ import jwt, { Secret } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import errorMessages from '../helpers/errorMessages';
 import schemas from '../schemas';
-import IReqUser from '../interfaces/IReqUser';
+import { IReqUser } from '../interfaces/IReqUser';
 
 dotenv.config();
 

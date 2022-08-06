@@ -1,6 +1,6 @@
 import { ResultSetHeader } from 'mysql2/promise';
 import connection from './connection';
-import IProducts from '../interfaces/IProducts';
+import { IProducts } from '../interfaces/IProducts';
 
 export const create = async (product: IProducts): Promise<IProducts> => {
   const query = `INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)`;
