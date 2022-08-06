@@ -11,6 +11,7 @@ const jwtConfig: SignOptions = {
   algorithm: 'HS256',
 };
 
-export default function generateToken(payload: IUsers) {
+const generateToken = (payload: IUsers) =>
   sign(payload, SECRET, jwtConfig);
-}
+
+export default generateToken;

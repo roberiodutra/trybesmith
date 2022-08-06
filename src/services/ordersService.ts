@@ -16,8 +16,8 @@ export const create = async (userId: number, productsIds: number[]) => {
   const orderId = await ordersModel.create(userId);
 
   await Promise.all(
-    productsIds.map(async(product) => (
-      await productsModel.update(orderId, product)
+    productsIds.map((product) => (
+      productsModel.update(orderId, product)
     )),
   );
 

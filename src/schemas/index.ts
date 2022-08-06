@@ -1,5 +1,5 @@
-import Joi from "joi"
-import errorMessages from "../helpers/errorMessages";
+import Joi from 'joi';
+import errorMessages from '../helpers/errorMessages';
 
 export default {
   body: Joi.object({
@@ -13,7 +13,7 @@ export default {
     .invalid(true)
     .messages({
       'any.invalid': errorMessages.InvalidLogin,
-  }),
+    }),
 
   product: Joi.object({
     name: Joi.string()
