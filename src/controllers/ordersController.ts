@@ -7,7 +7,7 @@ import { IReqUser } from '../interfaces/IReqUser';
 export const getAll = async (_req: Request, res: Response, next: NextFunction) => {
   try {
     const orders = await ordersService.getAll();
-    return res.status(httpStatus.OK).json(orders);
+    return res.status(httpStatus.Ok).json(orders);
   } catch (err) {
     next(err);
   }
@@ -21,7 +21,7 @@ export const create = async (
   try {
     await validateTokenService.validate(req);
     const created = await ordersService.create(req.user.id, req.body.productsIds);
-    return res.status(httpStatus.CREATED).json(created);
+    return res.status(httpStatus.Created).json(created);
   } catch (err) {
     next(err);
   }

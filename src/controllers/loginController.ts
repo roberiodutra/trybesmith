@@ -9,7 +9,7 @@ const loginController = async (
 ): Promise<Response | void> => {
   try {
     const token = await loginService.login(req.body);
-    return res.status(httpStatus.OK).json(token);
+    return res.status(httpStatus.Ok).json(token);
   } catch (err) {
     next(err);
   }

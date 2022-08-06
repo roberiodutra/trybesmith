@@ -12,7 +12,7 @@ export default {
   checkBool: Joi.boolean()
     .invalid(true)
     .messages({
-      'any.invalid': errorMessages.INVALID_LOGIN,
+      'any.invalid': errorMessages.InvalidLogin,
   }),
 
   product: Joi.object({
@@ -43,7 +43,7 @@ export default {
     token: Joi.string()
       .required()
       .messages({
-        'string.empty': errorMessages.TOKEN_N_FOUND,
+        'string.empty': errorMessages.TokenNotFound,
       }),
   }),
 
@@ -53,7 +53,7 @@ export default {
       .min(1)
       .required()
       .messages({
-        'array.min': errorMessages.PRODUCTS_IDS_ONLY_NUMBERS,
+        'array.min': errorMessages.ProductsIdsOnlyNumbers,
       }),
   }),
 };

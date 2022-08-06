@@ -1,13 +1,13 @@
 enum httpStatus {
-  OK = 200,
-  CREATED = 201,
-  NO_CONTENT = 204,
-  BAD_REQUEST = 400,
-  UNAUTHORIZED = 401,
-  NOT_FOUND = 404,
-  CONFLICT = 409,
-  UNPROCESSABLE = 422,
-  INTERNAL_SERVER = 500,
+  Ok = 200,
+  Created = 201,
+  NoContent = 204,
+  BadRequest = 400,
+  Unauthorized = 401,
+  NotFound = 404,
+  Conflict = 409,
+  Unprocessable = 422,
+  InternalServer = 500,
 };
 
 export default httpStatus;

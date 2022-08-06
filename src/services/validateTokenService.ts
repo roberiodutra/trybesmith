@@ -19,7 +19,7 @@ const validate = async (req: IReqUser): Promise<void> => {
 
   jwt.verify(token, SECRET, (error: any, user: any) => {
     if (error) {
-      const newError = new StatusError(errorMessages.INVALID_TOKEN);
+      const newError = new StatusError(errorMessages.InvalidToken);
       newError.details = [{ type: 'any.invalid' }];
       throw newError;
     }

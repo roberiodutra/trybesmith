@@ -5,7 +5,7 @@ import httpStatus from '../helpers/httpStatusCodes';
 const create = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = await usersService.create(req.body);
-    return res.status(httpStatus.CREATED).json(token);
+    return res.status(httpStatus.Created).json(token);
   } catch (err) {
     next(err);
   }
