@@ -1,6 +1,7 @@
 import { sign, SignOptions, Secret } from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import IUsers from '../interfaces/IUsers';
+import { IUsers } from '../interfaces/IUsers';
+
 dotenv.config();
 
 const SECRET: Secret = process.env.JWT_SECRET || 'vnetod';
@@ -10,5 +11,6 @@ const jwtConfig: SignOptions = {
   algorithm: 'HS256',
 };
 
-export const generateToken = (payload: IUsers) =>
+export default function generateToken(payload: IUsers) {
   sign(payload, SECRET, jwtConfig);
+}

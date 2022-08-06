@@ -17,7 +17,7 @@ export const create = async (
   req: IReqUser,
   res: Response,
   next: NextFunction,
-  ): Promise<Response | void> => {
+): Promise<Response | void> => {
   try {
     await validateTokenService.validate(req);
     const created = await ordersService.create(req.user.id, req.body.productsIds);
