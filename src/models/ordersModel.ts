@@ -3,8 +3,7 @@ import { IOrders } from '../interfaces/IOrders';
 import connection from './connection';
 
 export const getAll = async (): Promise<IOrders[]> => {
-  const query = 
-    `SELECT orders.id, orders.userId,
+  const query = `SELECT orders.id, orders.userId,
     GROUP_CONCAT(productsIds.id) AS productsIds
     FROM Trybesmith.Orders AS orders
     INNER JOIN Trybesmith.Products AS productsIds
@@ -16,7 +15,7 @@ export const getAll = async (): Promise<IOrders[]> => {
 };
 
 export const create = async (userId: number) => {
-  const query = `INSERT INTO Trybesmith.Orders (userId)VALUES (?)`;
+  const query = 'INSERT INTO Trybesmith.Orders (userId)VALUES (?)';
   const [{ insertId }] = await connection.execute<ResultSetHeader>(query, [userId]);
   return insertId;
 };

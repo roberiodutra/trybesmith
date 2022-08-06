@@ -1,4 +1,4 @@
-enum httpStatus {
+enum HttpStatus {
   Ok = 200,
   Created = 201,
   NoContent = 204,
@@ -8,6 +8,6 @@ enum httpStatus {
   Conflict = 409,
   Unprocessable = 422,
   InternalServer = 500,
-};
+}
 
-export default httpStatus;
+export default HttpStatus;

@@ -1,5 +1,5 @@
 import { ResultSetHeader } from 'mysql2/promise';
-import IUsers from '../interfaces/IUsers';
+import { IUsers } from '../interfaces/IUsers';
 import connection from './connection';
 
 export const create = async (u: IUsers): Promise<void> => {
@@ -11,8 +11,8 @@ export const create = async (u: IUsers): Promise<void> => {
 };
 
 export const getUser = async (body: any): Promise<any> => {
-  const query = `SELECT * FROM Trybesmith.Users WHERE username=? AND password=?`;
+  const query = 'SELECT * FROM Trybesmith.Users WHERE username=? AND password=?';
   const values = [body.username, body.password];
   const [userData] = await connection.execute(query, values);
   return userData;
-}
+};
