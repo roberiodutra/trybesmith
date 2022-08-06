@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import * as usersService from '../services/usersService';
 import httpStatus from '../helpers/httpStatusCodes';
 
-export const create = async (req: Request, res: Response, next: NextFunction) => {
+const create = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = await usersService.create(req.body);
     return res.status(httpStatus.CREATED).json(token);
@@ -10,3 +10,5 @@ export const create = async (req: Request, res: Response, next: NextFunction) =>
     next(err);
   }
 };
+
+export default create;
