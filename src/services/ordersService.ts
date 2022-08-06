@@ -12,7 +12,7 @@ export const getAll = async () => {
 };
 
 export const create = async (userId: number, productsIds: number[]) => {
-
+  await schemas.order.validateAsync({ productsIds });
   const orderId = await ordersModel.create(userId);
 
   await Promise.all(

@@ -38,4 +38,22 @@ export default {
       .required()
       .min(1),
   }),
+
+  token: Joi.object({
+    token: Joi.string()
+      .required()
+      .messages({
+        'string.empty': errorMessages.TOKEN_N_FOUND,
+      }),
+  }),
+
+  order: Joi.object({
+    productsIds: Joi.array()
+      .items(Joi.number())
+      .min(1)
+      .required()
+      .messages({
+        'array.min': errorMessages.PRODUCTS_IDS_ONLY_NUMBERS,
+      }),
+  }),
 };
