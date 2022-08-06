@@ -1,3 +1,4 @@
+import { ResultSetHeader } from 'mysql2/promise';
 import { IOrders } from '../interfaces/IOrders';
 import connection from './connection';
 
@@ -12,4 +13,10 @@ export const getAll = async (): Promise<IOrders[]> => {
     ORDER BY orders.userId ASC`;
   const [data] = await connection.execute(query);
   return data as IOrders[];
+};
+
+export const create = async (userId: number) => {
+  const query = `INSERT INTO Trybesmith.Orders (userId)VALUES (?)`;
+  const [{ insertId }] = await connection.execute<ResultSetHeader>(query, [userId]);
+  return insertId;
 };

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import * as ordersService from '../services/ordersService';
 import httpStatus from '../helpers/httpStatusCodes';
 
-const getAll = async (_req: Request, res: Response, next: NextFunction) => {
+export const getAll = async (_req: Request, res: Response, next: NextFunction) => {
   try {
     const orders = await ordersService.getAll();
     return res.status(httpStatus.OK).json(orders);
@@ -10,5 +10,3 @@ const getAll = async (_req: Request, res: Response, next: NextFunction) => {
     next(err);
   }
 };
-
-export default { getAll };

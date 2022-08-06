@@ -5,9 +5,9 @@ import schemas from '../schemas'
 
 const login = async (body: IUsers): Promise<{ token: string }> => {
   await schemas.body.validateAsync(body);
-  const userExists = await getUser(body);
-  await schemas.checkBool.validateAsync(userExists.length === 0);
-  const token = generateToken(body);
+  const [userExists] = await getUser(body);
+  await schemas.checkBool.validateAsync(!userExists);
+  const token = generateToken(JSON.parse(JSON.stringify(userExists)));
   return { token };
 };
 
