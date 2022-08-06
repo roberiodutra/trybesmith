@@ -7,7 +7,7 @@ import { IReqUser } from '../interfaces/IReqUser';
 dotenv.config();
 
 class StatusError extends Error {
-  details?: any;
+  details?: unknown;
 }
 
 const SECRET: Secret = process.env.JWT_SECRET || '';
@@ -17,7 +17,7 @@ const validate = async (req: IReqUser): Promise<void> => {
 
   await schemas.token.validateAsync({ token });
 
-  jwt.verify(token, SECRET, (error: any, user: any) => {
+  jwt.verify(token, SECRET, (error: unknown, user: unknown) => {
     if (error) {
       const newError = new StatusError(errorMessages.InvalidToken);
       newError.details = [{ type: 'any.invalid' }];
