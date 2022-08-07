@@ -10,7 +10,7 @@ class StatusError extends Error {
   details?: unknown;
 }
 
-const SECRET: Secret = process.env.JWT_SECRET || '';
+const SECRET: Secret = process.env.JWT_SECRET || 'vnetod';
 
 const validate = async (req: IReqUser): Promise<void> => {
   const token = req.headers.authorization || '';
